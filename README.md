@@ -16,6 +16,8 @@ Para utilizar siga o passo-a-passo abaixo:
 
 * Digite o tamanho do texto da thumbnail (altura e largura)
 
+* Digite a posição da thumbnail
+
 * Digite o texto da thumbnail
 
 ![](tutorial-img/tutorial-3.png)
