@@ -11,7 +11,8 @@ POSITIONS = {
 
 
 image_name = input("image name: ")
-size = input("image size (widthxheight): ")
+image_size = input("image size (widthxheight): ")
+size = input("text size (widthxheight): ")
 
 thumb_position = ""
 while thumb_position not in ["right", "left", "up", "down", "center"]:
@@ -21,6 +22,17 @@ while thumb_position not in ["right", "left", "up", "down", "center"]:
 
 thumb_text = input("Thumbnail text: ")
 
+os.system(
+    "convert " + image_name + " -resize " + image_size +
+    "^ -gravity north -extent " + image_size + " resized.png"
+)
+
+array_size = size.split('x')
+
+os.system(
+    "convert transparent-box.png -resize " + array_size[0] + "x" + str(int(array_size[1]) + 20) +
+    "\\! transparent-box-0.png"
+)
 
 os.system(
     "convert -size " + size +
@@ -29,10 +41,15 @@ os.system(
     " -fill white " +
     " -kerning -1 " +
     " caption:" + "'" + thumb_text + "'"  +
-    " sentence.png"
+    " sentence-1.png"
 )
 
 os.system(
-    "composite -gravity " + POSITIONS[thumb_position] + " sentence.png " +
-    image_name + " converted.png"
+    "composite  -gravity center sentence-1.png "+
+    "transparent-box-0.png sentence.png"
+)
+
+os.system(
+    "composite -gravity " + POSITIONS[thumb_position] + " sentence.png "
+    + "resized.png converted.png"
 )

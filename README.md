@@ -14,6 +14,8 @@ Para utilizar siga o passo-a-passo abaixo:
 
 * Digite o nome da imagem a ser editada (com a extensão, ex: original.png)
 
+* Digite o tamanho da imagem a ser editada, para resize (altura e largura)
+
 * Digite o tamanho do texto da thumbnail (altura e largura)
 
 * Digite a posição da thumbnail
