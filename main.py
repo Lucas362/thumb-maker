@@ -1,6 +1,7 @@
 import os
 
 
+image_name = input("image name: ")
 size = input("image size (widthxheight): ")
 thumb_text = input("Thumb text: ")
 
@@ -16,6 +17,6 @@ os.system(
 )
 
 os.system(
-    "composite  -gravity south sentence.png "+
-    "original.png converted.png"
+    "composite -gravity south sentence.png " +
+    image_name + " converted.png"
 )
